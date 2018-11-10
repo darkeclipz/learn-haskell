@@ -46,9 +46,9 @@ Fractional
 ### Tuple types
 
 ```haskell
-(False,True) :: (Bool, Bool)
-(False,'a',True) :: (Bool, Char, Bool)
-('a',(False,'b')) :: (Char,(Bool,Char))
+(False,True)             :: (Bool, Bool)
+(False,'a',True)         :: (Bool, Char, Bool)
+('a',(False,'b'))        :: (Char,(Bool,Char))
 (['a','b'],[False,True]) :: ([Char], [Bool])
 [('a',False),('b',True)] :: [(Char, Bool)]
 ```
@@ -121,6 +121,8 @@ This class contains types that are instances of the equality class `Eq`, but in 
 min  :: a -> a -> a
 max  :: a -> a -> a
 ```
+
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instanced of the `Eq` class, as are lists and tuple types (sorted lexicographically).
 
 ## Notation
 
