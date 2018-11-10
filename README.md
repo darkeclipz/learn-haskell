@@ -44,6 +44,57 @@ Double  -- double-precision floating-point numbers
 
 ### Tuple types
 
+```haskell
+(False,True) :: (Bool, Bool)
+(False,'a',True) :: (Bool, Char, Bool)
+('a',(False,'b')) :: (Char,(Bool,Char))
+(['a','b'],[False,True]) :: ([Char], [Bool])
+[('a',False),('b',True)] :: [(Char, Bool)]
+```
+
+### Function types
+
+```haskell
+not :: Bool -> Bool
+even :: Int -> Bool
+```
+
+### Curried functions
+
+```haskell
+add' :: Int -> (Int -> Int)
+add' x y = x+y
+mult :: Int -> (Int -> (Int -> Int))
+mult x y z = x*y*z
+```
+
+Function arrow `->` in types are evaluated from right to left, therefore:
+
+```haskell
+add' :: Int -> Int -> Int
+mult :: Int -> Int -> Int -> Int
+```
+
+### Polymorphic types
+
+```haskell
+length :: [a] -> Int
+fst :: [a] -> a
+head :: [a] -> a
+take :: Int -> [a] -> [a]
+zip :: [a] -> [b] -> [(a,b)]
+id :: a -> a
+```
+
+### Overloaded types
+
+```haskell
+(+) :: Num a => a -> a -> a
+(*) :: Num a => a -> a -> a
+negate :: Num a => a -> a
+abs :: Num a => a ->
+```
+
 ## Notation
 
 ### Function application in mathematics and Haskell:
