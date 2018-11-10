@@ -31,6 +31,7 @@ Int     -- fixed-precision integers
 Integer -- arbitrary-precision integers
 Float   -- single-precision floating-point numbers
 Double  -- double-precision floating-point numbers
+Fractional
 ```
 
 ### List types
@@ -79,20 +80,46 @@ mult :: Int -> Int -> Int -> Int
 
 ```haskell
 length :: [a] -> Int
-fst :: [a] -> a
-head :: [a] -> a
-take :: Int -> [a] -> [a]
-zip :: [a] -> [b] -> [(a,b)]
-id :: a -> a
+fst    :: [a] -> a
+head   :: [a] -> a
+take   :: Int -> [a] -> [a]
+zip    :: [a] -> [b] -> [(a,b)]
+id     :: a -> a
 ```
 
-### Overloaded types
+### Overload types
 
 ```haskell
-(+) :: Num a => a -> a -> a
-(*) :: Num a => a -> a -> a
+(+)    :: Num a => a -> a -> a
+(*)    :: Num a => a -> a -> a
 negate :: Num a => a -> a
-abs :: Num a => a ->
+abs     :: Num a => a ->
+```
+
+## Basic classes
+
+A _class_ is a collection of types that support certain overloaded operations called _methods_.
+
+### `Eq` -- equality types
+
+```haskell
+(==) :: a -> a -> Bool
+(/=) :: a -> a -> Bool
+```
+
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instanced of the `Eq` class.
+
+### `Ord` -- ordered types
+
+This class contains types that are instances of the equality class `Eq`, but in addition whose value are totally (linearly) ordered. They can be compared with the following methods:
+
+```haskell
+(<)  :: a -> a -> Bool
+(<=) :: a -> a -> Bool
+(>)  :: a -> a -> Bool
+(>=) :: a -> a -> Bool
+min  :: a -> a -> a
+max  :: a -> a -> a
 ```
 
 ## Notation
