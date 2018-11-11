@@ -1,5 +1,24 @@
 This repository serves as a reference to Haskell stuff.
 
+# Table of Contents
+
+ * [Standard](#standard)
+ * [Types](#types)
+    * [List types](#listtypes)
+    * [Tuple types](#tupletypes)
+    * [Function types](#functiontypes)
+    * [Curried functions](#curriedfunctions)
+    * [Polymorphic types](#polymorphictypes)
+    * [Overload types](#overloadtypes)
+ * [Basic classes](#basicclasses)
+ * [Defining functions](#definingfunctions)
+   * [Conditional expressions](#conditionalexpressions)
+   * [Guarded equations](#guardedequations)
+   * [Pattern matching](#patternmatching)
+   * [Lambda expressions](#lambdaexpressions)
+   * [Operator sections](#operatorsections)
+  * [Notation](#notation)
+
 # Haskell Prelude
 
 ## Standard
