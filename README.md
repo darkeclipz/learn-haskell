@@ -335,7 +335,15 @@ test ['a',_,_] = True
 test _         = False
 ```
 
+The libary functions `head` and `tail` are defined as follows:
 
+```haskell
+head :: [a] -> a
+head (x:_) = x
+
+tail :: [a] -> a
+tail (_:xs) = xs
+```
 
 
 ### Lambda expressions 
