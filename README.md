@@ -315,16 +315,25 @@ b && c | b == c    = b
 
 ### Tuple patterns
 
-A tuple of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding pattern in order. To check if a string starts with `a`:
+A tuple of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding pattern in order. For example:
+
+```haskell
+fst :: (a,b) -> a
+fst (x,_) = x
+
+snd :: (a,b) -> b
+snd (_,y) = y
+```
+
+### List patterns
+
+Similarly, a list of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding patterns in order.
 
 ```haskell
 test :: [Char] -> Bool
 test ['a',_,_] = True
 test _         = False
 ```
-
-### List patterns
-
 
 
 
