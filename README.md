@@ -92,7 +92,7 @@ id     :: a -> a
 (+)    :: Num a => a -> a -> a
 (*)    :: Num a => a -> a -> a
 negate :: Num a => a -> a
-abs     :: Num a => a ->
+abs    :: Num a => a ->
 ```
 
 ## Basic classes
@@ -186,7 +186,7 @@ The basic types `Int` and `Integer` are instances of the `Integral` class.
 This class contains types that are instances of the numeric class `Num`, but in addition whose values are non-integral, and as such support the methods of fractional division and fractional reciprocation:
 
 ```haskell
-(/) :: a -> a -> a
+(/)   :: a -> a -> a
 recip :: a -> a
 ```
 
@@ -205,14 +205,14 @@ even n = n `mod` 2 == 0
 splitAt :: Int -> [a] -> ([a], [a])
 splitAt n xs = (take n xs, drop n xs)
 
--- Reciprocation
+-- Reciprocation.
 recip :: Fractional a => a -> a
 recip n = 1/n
 ```
 
 ### Conditional expressions
 
-The simplest are _conditional expressions_, which ise a logical expression called a _condition_ to choose between two results of the same type.
+The simplest are _conditional expressions_, which use a logical expression called a _condition_ to choose between two results of the same type.
 
 ```haskell
 abs :: Int -> Int
