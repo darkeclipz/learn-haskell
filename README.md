@@ -190,6 +190,68 @@ This class contains types that are instances of the numeric class `Num`, but in 
 recip :: a -> a
 ```
 
+## Defining functions
+
+### New from old
+
+Perhaps the most straightforward way to define new functions is simply by combining one or more existing functions:
+
+```haskell
+-- Decide if an integer is even.
+even :: Integral a => a -> Bool
+even n = n `mod` 2 == 0
+
+-- Split a list at the nth element.
+splitAt :: Int -> [a] -> ([a], [a])
+splitAt n xs = (take n xs, drop n xs)
+
+-- Reciprocation
+recip :: Fractional a => a -> a
+recip n = 1/n
+```
+
+### Conditional expressions
+
+The simplest are _conditional expressions_, which ise a logical expression called a _condition_ to choose between two results of the same type.
+
+```haskell
+abs :: Int -> Int
+abs n = if n >= 0 then n else -n
+```
+
+Conditional expressions may be nested:
+
+```haskell
+signum :: Int -> Int
+signum n = if n < 0 then -1 else
+                if n == 0 else -1
+```
+
+Conditional expressions in Haskell always must have an `else` branch, which avoids the well-known _dangling else_ problem.
+
+### Guarded equations
+
+As an alternative to using conditional expressions, functions can also be defined using _guarded equations_, in which a sequence of logical expressions called _guards_ is used to choose between a sequence of results of the same type.
+
+```haskell
+abs n | n >= 0 = n
+      | otherwise = -n
+```
+
+Definitions with multiple guard are easier to read. For example, the function `signum`:
+
+```haskell
+signum n | n < 0     = -1
+         | n == 0    = 0
+         | otherwise = 1
+```
+
+### Pattern matching
+
+### Lambda expressions 
+
+### Operator sections
+
 ## Notation
 
 ### Function application in mathematics and Haskell:
