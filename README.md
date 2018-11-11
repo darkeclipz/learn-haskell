@@ -274,6 +274,61 @@ signum n | n < 0     = -1
 
 ### Pattern matching
 
+Many functions have a simple and intuitive definition using _pattern matching_, in which a sequency of syntactic expressions called _patterns_ is used to choose between a sequence of results of the same type.
+
+```haskell
+not :: Bool -> Bool
+not False = True
+not True  = False
+```
+
+Functions with more than one argument can also be defined using pattern matching, for example:
+
+```haskell
+(&&) :: Bool -> Bool -> Bool
+True  && True = True
+True  && False = False
+False && True = False
+False && False = False
+```
+
+This definition can be simplified using the wildcard `_` pattern:
+
+```haskell
+True && True = True
+_    && _    = False
+```
+
+This version also benefits from lazy evaluation:
+
+```haskell
+True  && b = b
+False && _ = False
+```
+
+It can also be implemented with a guard:
+
+```haskell
+b && c | b == c    = b
+       | otherwise = False
+```
+
+### Tuple patterns
+
+A tuple of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding pattern in order. To check if a string starts with `a`:
+
+```haskell
+test :: [Char] -> Bool
+test ['a',_,_] = True
+test _         = False
+```
+
+### List patterns
+
+
+
+
+
 ### Lambda expressions 
 
 ### Operator sections
