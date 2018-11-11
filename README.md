@@ -13,7 +13,7 @@ This repository serves as a reference to Haskell stuff.
  * [Basic classes](#basic-classes)
    * [Equality types `Eq`](#eq----equality-types)
    * [Ordered types `Ord`](#ord----ordered-types)
-   * [Showable types `Show`](#show-----show-types)
+   * [Showable types `Show`](#show-----showable-types)
    * [Readable types `Read`](#read-----readable-types)
    * [Numeric types `Num`](#num-----numeric-types)
    * [Integral types `Integral`](#integral----integral-types)
