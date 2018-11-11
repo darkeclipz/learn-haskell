@@ -31,7 +31,6 @@ Int     -- fixed-precision integers
 Integer -- arbitrary-precision integers
 Float   -- single-precision floating-point numbers
 Double  -- double-precision floating-point numbers
-Fractional
 ```
 
 ### List types
@@ -107,7 +106,7 @@ A _class_ is a collection of types that support certain overloaded operations ca
 (/=) :: a -> a -> Bool
 ```
 
-All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instanced of the `Eq` class.
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instances of the `Eq` class.
 
 ### `Ord` -- ordered types
 
@@ -122,7 +121,74 @@ min  :: a -> a -> a
 max  :: a -> a -> a
 ```
 
-All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instanced of the `Eq` class, as are lists and tuple types (sorted lexicographically).
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instances of the `Eq` class, as are lists and tuple types (sorted lexicographically).
+
+### `Show` -- showable types
+
+This class contains types whose values can be converted into strings of characters using the following method:
+
+```haskell
+show :: a -> String
+```
+
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instances of the `Show` class, as are lists and tuples. Example usage:
+
+```haskell
+show False
+show 'a'
+show [1,2,3]
+```
+
+### `Read` -- readable types
+
+This class is dual to `Show`, and contains types whose values can be converted from strings of characters using the following method:
+
+```haskell
+read :: String -> a
+```
+
+All basic types `Bool`, `Char`, `String`, `Int`, `Integer`, `Float`, and `Double` are instances of the `Read` class, as are lists and tuples. Example usage:
+
+```haskell
+read "False" :: Bool
+read "'a'" :: Char
+read "123" :: Int
+```
+
+### `Num` -- numeric types
+
+This class contains types whose values are numeric, and as such can be processed using the following six methods:
+
+```haskell
+(+)    :: a -> a -> a
+(-)    :: a -> a -> a
+(*)    :: a -> a -> a
+negate :: a -> a
+abs    :: a -> a
+signum :: a -> a
+```
+
+The basic types `Int`, `Integer`, `Float`, and `Double` are instances of the `Num` class.
+
+### `Integral` -- integral types
+
+This class contains types that are instances of the numeric class `Num`, but in addition whose values are integers, and as such support the moethods of integer division and integer remainder.
+
+```haskell
+div :: a -> a -> a
+mod :: a -> a -> a
+```
+
+The basic types `Int` and `Integer` are instances of the `Integral` class.
+
+### `Fractional` -- fractional types
+
+This class contains types that are instances of the numeric class `Num`, but in addition whose values are non-integral, and as such support the methods of fractional division and fractional reciprocation:
+
+```haskell
+(/) :: a -> a -> a
+recip :: a -> a
+```
 
 ## Notation
 
