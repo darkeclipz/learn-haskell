@@ -313,7 +313,7 @@ b && c | b == c    = b
        | otherwise = False
 ```
 
-### Tuple patterns
+#### Tuple patterns
 
 A tuple of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding pattern in order. For example:
 
@@ -325,7 +325,7 @@ snd :: (a,b) -> b
 snd (_,y) = y
 ```
 
-### List patterns
+#### List patterns
 
 Similarly, a list of patterns is itself a pattern, which matches any list of the same length whose elements all match the corresponding patterns in order.
 
