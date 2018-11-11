@@ -345,8 +345,44 @@ tail :: [a] -> a
 tail (_:xs) = xs
 ```
 
-
 ### Lambda expressions 
+
+As an alternative to defining functions using equations, functions can also be constructed using _lambda expressions_, for example:
+
+```haskell
+(\x -> x + x) 5
+```
+
+They can be used to formalize the meaning of curried functions:
+
+```haskell
+add :: Int -> Int -> Int
+add x y = x + y
+
+add :: Int -> Int -> Int
+add = \x -> (\y -> x + y)
+```
+
+Secondly, they can be used to explicitly show that a function is returned as a result:
+
+```haskell
+const :: a -> b -> a
+const x _ = x
+
+const :: a -> (b -> a)
+const x = \_ -> x
+```
+
+Finally, they can be used to avoid naming a function that is used only once in a program:
+
+```haskell
+odds :: Int -> [Int]
+odds n = map f [0..n-1]
+         where f x = x*2 + 1
+
+odds :: Int -> [Int]
+odds n = map (\x -> x*2 + 1) [0..n-1]
+```
 
 ### Operator sections
 
