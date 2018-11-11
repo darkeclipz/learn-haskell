@@ -24,6 +24,13 @@ This repository serves as a reference to Haskell stuff.
    * [Pattern matching](#pattern-matching)
    * [Lambda expressions](#lambda-expressions)
    * [Operator sections](#operator-sections)
+  * [List comprehensions](#list-comprehensions)
+  * [Recursive functions](#recursive-functions)
+  * [High-order functions](#high-order-functions)
+  * [Declaring types and classes](#declaring-types-and-classes)
+  * [Monads and more](#monads-and-more)
+  * [Foldables and friends](#foldables-and-friends)
+  * [Lazy evaluation](#lazy-evaluation)
   * [Notation](#notation)
 
 # Haskell Prelude
@@ -385,6 +392,20 @@ odds n = map (\x -> x*2 + 1) [0..n-1]
 ```
 
 ### Operator sections
+
+## List comprehensions
+
+## Recursive functions
+
+## Higher-order functions
+
+## Declaring types and classes
+
+## Monads and more
+
+## Foldables and friends
+
+## Lazy evaluation
 
 ## Notation
 
