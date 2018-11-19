@@ -24,7 +24,10 @@ This repository serves as a reference to Haskell stuff.
    * [Pattern matching](#pattern-matching)
    * [Lambda expressions](#lambda-expressions)
    * [Operator sections](#operator-sections)
-  * [List comprehensions](#list-comprehensions)
+ * [List comprehensions](#list-comprehensions)
+   * [Guards](#guards)
+   * [The zip function](#the-zip-function)
+   * [String comprehensions](#string-comprehensions)
   * [Recursive functions](#recursive-functions)
   * [High-order functions](#high-order-functions)
   * [Declaring types and classes](#declaring-types-and-classes)
@@ -460,8 +463,7 @@ find 'b' [('a',10),('b',5),('c',2),('b',-2)]
 
 Because strings are lists, any polymorphic function on lists can be used with strings, for example:
 
-```haskell
-
+...
 
 ## Recursive functions
 
