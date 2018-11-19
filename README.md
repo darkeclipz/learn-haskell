@@ -393,7 +393,75 @@ odds n = map (\x -> x*2 + 1) [0..n-1]
 
 ### Operator sections
 
+See page 44.
+
 ## List comprehensions
+
+In Haskell, comprehension notation can be used to construct new lists from existings lists, for example:
+
+```haskell
+[x^2 | x <- [1..5]]
+```
+
+In this example `x <- [1..5]` is called a _generator_. It is also possible to create a pairing between two lists:
+
+```haskell
+[(x,y) | x <- [1,2,3], y <- [4,5]]
+[(x,y) | y <- [4,5], x <- [1,2,3]]
+```
+
+Some library functions are implemented with this method, such as:
+
+```haskell
+-- concat
+concat :: [[a]] -> [a]
+concat xss = [x | xs <- xss, x <- xs]
+
+-- firsts
+firsts :: [(a,b)] -> [a]
+firsts ps = [x | (x,_) <- ps]
+
+-- length
+length :: [a] -> Int
+length xs = sum [1 | _ <- xs]
+```
+
+### Guards
+
+List comprehensions can also use logical expressions called _guards_ to filter the values produced by earlier generators, for example:
+
+```haskell
+factors :: Int -> [Int]
+factors n = [x | x <- [1..n], n `mod` x == 0]
+
+prime :: Int -> Bool
+prime n = factors n == [1,n]
+
+primes :: Int -> [Int]
+primes n = [x | x <- [2..n], prime x]
+```
+
+A function `find` that returns the list of all values that are associated with a given key in a table can be defined as follows:
+
+```haskell
+find :: Eq => a -> [(a,b)] -> [b]
+find k t = [v | (k', v) <- t, k == k']
+
+-- example
+find 'b' [('a',10),('b',5),('c',2),('b',-2)]
+[5,-2]
+```
+
+### The `zip` function
+
+...
+
+### String comprehensions
+
+Because strings are lists, any polymorphic function on lists can be used with strings, for example:
+
+```haskell
+
 
 ## Recursive functions
 
