@@ -457,13 +457,74 @@ find 'b' [('a',10),('b',5),('c',2),('b',-2)]
 
 ### The `zip` function
 
-...
+The library function `zip` produces a new list by pairing succesive elements from two lists until either or both are exhausted, for example:
+
+```haskell
+zip ['a','b','c'] [1,2,3,4]
+```
+
+To create pairs of numbers:
+
+```haskell
+pairs :: [a] -> [(a,a)]
+pairs xs = zip xs (tail xs)
+```
+
+Then using `pairs` we can now define a function that decides if the list is sorted:
+
+```haskell
+sorted :: Ord a => [a] -> Bool
+sorted xs = and [x <= y | (x,y) <- pairs xs]
+
+-- Example
+> sorted [1,2,3,4]
+True
+```
+
+Using `zip` we can also define a function that returns the list of all positions at which a value occurs in a list:
+
+```haskell
+positions :: Eq => a -> [a] -> [Int]
+positions x xs = [i | (x',i) <- zip xs [0..], x == x']
+
+-- Example
+> positions False [True,False,True,False]
+[1,3]
+```
 
 ### String comprehensions
 
 Because strings are lists, any polymorphic function on lists can be used with strings, for example:
 
-...
+```haskell 
+> "abcde" !! 2
+'c'
+
+> take 3 "abcde"
+"abc"
+
+> length "abcde"
+5
+
+> zip "abc" [1,2,3,4]
+[('a',1),('b',2),('c',3)]
+```
+
+For the same reason, list comprehensions can also be used to define functions on strings, for example:
+
+```haskell
+lowers :: String -> Int
+lowers xs = length [x | x <- xs, x >= 'a' && x <= 'z']
+
+count :: Char -> String -> Int
+count x xs = length [x' | x' <- xs, x == x']
+
+> lowers "Haskell"
+6
+
+> count 's' "Mississipi
+4
+```
 
 ## Recursive functions
 
